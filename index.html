@@ -297,12 +297,58 @@ section {
   gap: 25px;
 }
 
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+}
+
 .album {
   background: var(--card);
   border: 1px solid #ffffff10;
   overflow: hidden;
   transition: .35s;
 }
+
+.album:hover {
+  transform: translateY(-9px);
+  border-color: var(--gold);
+}
+
+.album-cover {
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  font-weight: 800;
+  text-align: center;
+  padding: 15px;
+}
+
+.cover1 { background: linear-gradient(135deg,#a18b56,#302a23,#09090d); }
+.cover2 { background: linear-gradient(135deg,#b91d37,#34101b,#08080d); }
+.cover3 { background: linear-gradient(135deg,#b56cba,#30204b,#0c0b15); }
+.cover4 { background: linear-gradient(135deg,#92745e,#26201b,#0b0b0d); }
+.cover5 { background: linear-gradient(135deg,#267c9a,#25224f,#0b0b16); }
+.cover6 { background: linear-gradient(135deg,#a04444,#31142b,#0b0b12); }
+
+.album-info {
+  padding: 23px;
+}
+
+.album-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.album-info p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
 
 .album:hover {
   transform: translateY(-9px);
