@@ -1,0 +1,807 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lady Gaga | The Pop Icon</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #09090d;
+  --card: #15151d;
+  --gold: #d6b46b;
+  --white: #f8f6f1;
+  --muted: #a4a1ad;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(9,9,13,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid #ffffff12;
+}
+
+nav {
+  max-width: 1250px;
+  margin: auto;
+  padding: 22px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  color: #ddd;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 130px 20px 70px;
+  background:
+    radial-gradient(ellipse at 50% 40%, #6b3d6950, transparent 55%),
+    radial-gradient(ellipse at 15% 80%, #a37c3525, transparent 40%),
+    linear-gradient(135deg, #09090d, #18101e, #09090d);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "GAGA";
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(130px, 27vw, 350px);
+  font-weight: 800;
+  color: #ffffff05;
+  white-space: nowrap;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 850px;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(65px, 12vw, 130px);
+  line-height: 1.1;
+  margin: 25px 0;
+  background: linear-gradient(120deg,#fff,#d6b46b,#fff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: #c1bdc9;
+  font-size: 16px;
+  line-height: 1.9;
+  max-width: 600px;
+  margin: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 32px;
+  margin: 30px 8px 0;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 4px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  transition: .3s;
+}
+
+.btn.primary {
+  background: var(--gold);
+  color: #111;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px #d6b46b35;
+}
+
+section {
+  padding: 105px 7%;
+  max-width: 1450px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-title span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.section-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(35px,5vw,55px);
+  margin-top: 15px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-art {
+  min-height: 430px;
+  border: 1px solid #d6b46b45;
+  background:
+    radial-gradient(circle at 50% 40%, #a77cbd70, transparent 35%),
+    linear-gradient(145deg,#211426,#111019,#403022);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-art::after {
+  content: "LADY GAGA";
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px,7vw,80px);
+  color: #ffffff20;
+  font-weight: 800;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+}
+
+.about-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  margin-bottom: 22px;
+}
+
+.about-text p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 17px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.fact {
+  background: var(--card);
+  padding: 20px;
+  border-left: 2px solid var(--gold);
+}
+
+.fact strong {
+  display: block;
+  color: var(--gold);
+  font-size: 19px;
+  margin-bottom: 7px;
+}
+
+.fact small {
+  color: var(--muted);
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+}
+
+.album {
+  background: var(--card);
+  border: 1px solid #ffffff10;
+  overflow: hidden;
+  transition: .35s;
+}
+
+.album:hover {
+  transform: translateY(-9px);
+  border-color: var(--gold);
+}
+
+.album-cover {
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  font-weight: 800;
+  text-align: center;
+  padding: 15px;
+}
+
+.cover1 { background: linear-gradient(135deg,#a18b56,#302a23,#09090d); }
+.cover2 { background: linear-gradient(135deg,#b91d37,#34101b,#08080d); }
+.cover3 { background: linear-gradient(135deg,#b56cba,#30204b,#0c0b15); }
+.cover4 { background: linear-gradient(135deg,#92745e,#26201b,#0b0b0d); }
+.cover5 { background: linear-gradient(135deg,#267c9a,#25224f,#0b0b16); }
+.cover6 { background: linear-gradient(135deg,#a04444,#31142b,#0b0b12); }
+
+.album-info {
+  padding: 23px;
+}
+
+.album-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.album-info p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.songs {
+  background: linear-gradient(180deg,#111018,#09090d);
+}
+
+.song-list {
+  max-width: 850px;
+  margin: auto;
+}
+
+.song {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 22px 20px;
+  border-bottom: 1px solid #ffffff12;
+  transition: .3s;
+}
+
+.song:hover {
+  background: #ffffff08;
+  padding-left: 30px;
+}
+
+.song h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.song p {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.song a {
+  color: var(--gold);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.judas {
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center,#57233d70,transparent 65%),
+    #100b13;
+  border-top: 1px solid #ffffff10;
+  border-bottom: 1px solid #ffffff10;
+  max-width: none;
+}
+
+.judas-content {
+  max-width: 750px;
+  margin: auto;
+}
+
+.judas h2 {
+  font-family: 'Playfair Display',serif;
+  font-size: clamp(55px,10vw,100px);
+  color: #d9a0a8;
+  margin: 20px 0;
+}
+
+.judas p {
+  color: #c0b5c1;
+  line-height: 2;
+  font-size: 14px;
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.career-card {
+  background: var(--card);
+  padding: 30px;
+  border-top: 2px solid var(--gold);
+}
+
+.career-card h3 {
+  font-family: 'Playfair Display',serif;
+  margin-bottom: 12px;
+  font-size: 23px;
+}
+
+.career-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 13px;
+}
+
+footer {
+  background: #050508;
+  text-align: center;
+  padding: 55px 20px;
+  border-top: 1px solid #ffffff15;
+}
+
+footer h2 {
+  font-family: 'Playfair Display',serif;
+  color: var(--gold);
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+}
+
+.back-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: var(--gold);
+  color: #111;
+  padding: 13px 17px;
+  border-radius: 50%;
+  z-index: 50;
+  font-size: 18px;
+}
+
+@media(max-width:850px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background: #111019;
+    padding: 25px;
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .album-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .career-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width:520px) {
+  section {
+    padding: 75px 6%;
+  }
+
+  .album-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .album-cover {
+    height: 230px;
+  }
+
+  .facts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .song {
+    padding: 20px 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+  <a href="#" class="logo">GAGA.</a>
+
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">HOME</a></li>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#albums">ALBUMS</a></li>
+    <li><a href="#music">MUSIC</a></li>
+    <li><a href="#career">CAREER</a></li>
+  </ul>
+</nav>
+</header>
+
+<main>
+
+<div class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">THE ART OF MUSIC & EXPRESSION</span>
+
+    <h1>LADY GAGA</h1>
+
+    <p>
+      A global pop icon. A fearless artist.
+      A voice that changed modern music.
+      Discover the extraordinary journey of
+      Stefani Joanne Angelina Germanotta.
+    </p>
+
+    <a href="#about" class="btn primary">EXPLORE HER WORLD</a>
+    <a href="#music" class="btn">DISCOVER MUSIC</a>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-title">
+    <span>THE WOMAN BEHIND THE ICON</span>
+    <h2>About Lady Gaga</h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-art"></div>
+
+    <div class="about-text">
+      <h3>More Than A Superstar.</h3>
+
+      <p>
+        Lady Gaga, born Stefani Joanne Angelina Germanotta
+        on March 28, 1986, is an American singer, songwriter
+        and actress.
+      </p>
+
+      <p>
+        Born in Manhattan, New York City, she developed
+        a passion for music at a young age. She began
+        playing piano as a child and later pursued
+        professional music studies.
+      </p>
+
+      <p>
+        Her unique voice, creative performances,
+        experimental fashion and powerful songwriting
+        have made her an internationally recognized artist.
+      </p>
+
+      <div class="facts">
+        <div class="fact">
+          <strong>1986</strong>
+          <small>Year of Birth</small>
+        </div>
+
+        <div class="fact">
+          <strong>American</strong>
+          <small>Nationality</small>
+        </div>
+
+        <div class="fact">
+          <strong>Singer</strong>
+          <small>Main Profession</small>
+        </div>
+
+        <div class="fact">
+          <strong>2008</strong>
+          <small>Debut Album</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="albums">
+  <div class="section-title">
+    <span>THE MUSICAL COLLECTION</span>
+    <h2>Studio Albums</h2>
+  </div>
+
+  <div class="album-grid">
+
+    <div class="album">
+      <div class="album-cover cover1">THE FAME</div>
+      <div class="album-info">
+        <h3>The Fame</h3>
+        <p>2008 · Debut Studio Album</p>
+      </div>
+    </div>
+
+    <div class="album">
+      <div class="album-cover cover2">BORN THIS WAY</div>
+      <div class="album-info">
+        <h3>Born This Way</h3>
+        <p>2011 · Second Studio Album</p>
+      </div>
+    </div>
+
+    <div class="album">
+      <div class="album-cover cover3">ARTPOP</div>
+      <div class="album-info">
+        <h3>ARTPOP</h3>
+        <p>2013 · Third Studio Album</p>
+      </div>
+    </div>
+
+    <div class="album">
+      <div class="album-cover cover4">JOANNE</div>
+      <div class="album-info">
+        <h3>Joanne</h3>
+        <p>2016 · Fifth Studio Album</p>
+      </div>
+    </div>
+
+    <div class="album">
+      <div class="album-cover cover5">CHROMATICA</div>
+      <div class="album-info">
+        <h3>Chromatica</h3>
+        <p>2020 · Sixth Studio Album</p>
+      </div>
+    </div>
+
+    <div class="album">
+      <div class="album-cover cover6">MAYHEM</div>
+      <div class="album-info">
+        <h3>Mayhem</h3>
+        <p>2025 · Seventh Studio Album</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="music" class="songs">
+  <div class="section-title">
+    <span>THE SOUND OF A GENERATION</span>
+    <h2>Popular Songs</h2>
+  </div>
+
+  <div class="song-list">
+
+    <div class="song">
+      <div>
+        <h3>01. Bad Romance</h3>
+        <p>The Fame Monster · 2009</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Lady+Gaga+Bad+Romance+official" target="_blank">LISTEN ↗</a>
+    </div>
+
+    <div class="song">
+      <div>
+        <h3>02. Poker Face</h3>
+        <p>The Fame · 2008</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Lady+Gaga+Poker+Face+official" target="_blank">LISTEN ↗</a>
+    </div>
+
+    <div class="song">
+      <div>
+        <h3>03. Judas</h3>
+        <p>Born This Way · 2011</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Lady+Gaga+Judas+official" target="_blank">LISTEN ↗</a>
+    </div>
+
+    <div class="song">
+      <div>
+        <h3>04. Shallow</h3>
+        <p>A Star Is Born · 2018</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Lady+Gaga+Shallow+official" target="_blank">LISTEN ↗</a>
+    </div>
+
+    <div class="song">
+      <div>
+        <h3>05. Rain On Me</h3>
+        <p>Chromatica · 2020</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Lady+Gaga+Rain+On+Me+official" target="_blank">LISTEN ↗</a>
+    </div>
+
+    <div class="song">
+      <div>
+        <h3>06. Die With A Smile</h3>
+        <p>With Bruno Mars · 2024</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Lady+Gaga+Bruno+Mars+Die+With+A+Smile" target="_blank">LISTEN ↗</a>
+    </div>
+
+    <div class="song">
+      <div>
+        <h3>07. Abracadabra</h3>
+        <p>Mayhem · 2025</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Lady+Gaga+Abracadabra+official" target="_blank">LISTEN ↗</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="judas">
+  <div class="judas-content">
+    <span class="eyebrow">FEATURED MUSIC</span>
+
+    <h2>JUDAS</h2>
+
+    <p>
+      Released in 2011 as part of Born This Way,
+      Judas is one of Lady Gaga's most discussed
+      musical works. The song explores themes of
+      betrayal, temptation and emotional conflict
+      through religious symbolism.
+    </p>
+
+    <a class="btn primary"
+       href="https://www.youtube.com/results?search_query=Lady+Gaga+Judas+Official+Music+Video"
+       target="_blank">
+       WATCH MUSIC VIDEO ↗
+    </a>
+  </div>
+</section>
+
+<section id="career">
+  <div class="section-title">
+    <span>BEYOND THE MUSIC</span>
+    <h2>Her Achievements</h2>
+  </div>
+
+  <div class="career-grid">
+
+    <div class="career-card">
+      <h3>Music</h3>
+      <p>
+        Lady Gaga has received numerous Grammy Awards
+        and international music honors for her
+        songwriting and performances.
+      </p>
+    </div>
+
+    <div class="career-card">
+      <h3>Acting</h3>
+      <p>
+        She starred in A Star Is Born, House of Gucci
+        and other major screen productions.
+        Her performance in A Star Is Born
+        earned her an Academy Award for Shallow.
+      </p>
+    </div>
+
+    <div class="career-card">
+      <h3>Philanthropy</h3>
+      <p>
+        She co-founded the Born This Way Foundation
+        to support young people's mental wellness
+        and build kinder communities.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <h2>LADY GAGA</h2>
+  <p>Music. Art. Creativity. Expression.</p>
+  <p>A fan-made website. Not affiliated with Lady Gaga.</p>
+  <p>© 2026 Lady Gaga Fan Experience</p>
+</footer>
+
+<a href="#home" class="back-top" aria-label="Back to top">↑</a>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  menuBtn.textContent =
+    navLinks.classList.contains("active") ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menuBtn.textContent = "☰";
+  });
+});
+</script>
+
+</body>
+</html>
